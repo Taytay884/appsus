@@ -1,0 +1,27 @@
+/* general */
+
+* {
+    box-sizing: border-box;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid black;
+}
+
+body {
+    margin: 0;
+}
+
+/* helpers */
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flex-nav {
+    display: flex;
+    height: 64px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+}
