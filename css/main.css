@@ -1,2 +1,6 @@
-@import './home/home.css'
+@import './home/home.css';
+@import './sus-mail/sus-mail.css';
 
+#app {
+    height: inherit;
+}

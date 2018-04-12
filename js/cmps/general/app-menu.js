@@ -16,7 +16,7 @@ export default {
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/susMail">
+                    <router-link to="/sus-mail">
                         <img src="./img/general/email.svg" alt="home" />
                         <p>hey</p>
                     </router-link>
