@@ -16,7 +16,7 @@ const routes = [
             { path: 'new-mail', component: newMail },
             { path: 'read-mail', component: readMail }
         ] },
-    { path: '/susPlaces', component: susPlaces },
+    { path: '/sus-places', component: susPlaces },
 ];
 
 Vue.use(VueRouter);

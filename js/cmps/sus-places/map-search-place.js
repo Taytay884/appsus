@@ -3,39 +3,48 @@ import susPlacesService from '../../services/google-map.service.js';
 export default {
     template: `
     <section class="map-search-place">
-        <input type="search" placeholder="Search location..." v-model="locationName" @input="findLocation" @change="findLocation"/>
-        <ul class="autocomplete-list clean-list">
-            <li v-for="location in autocompleteLocations" @click="setLocationName(location)">{{ location }}</li>
-        </ul>
+        <form @submit.prevent="searchLocation" class="search-bar-container">
+            <input type="search" placeholder="Search location..." v-model="locationName" @input="findLocation" @change="findLocation"/>
+            <ul v-show="autocompleteShow" class="autocomplete-list clean-list">
+                <button type="submit" class="clear-btn" v-for="location in autocompleteLocations" @click="setLocationName(location)">{{ location }}</button>
+            </ul>
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
     </section>
     `,
     data() {
         return {
             locationName: '',
             currLocation: {},
-            autocompleteLocations: []
+            autocompleteLocations: [],
+            autocompleteShow: false,
+            isSubmitted: false
         }
     },
     methods: {
         findLocation: _.debounce(function (e) {
-            if (this.locationName) {
+                susPlacesService.getAutocompleteList(this.locationName)
+                    .then(res => {
+                        setTimeout(() => this.autocompleteShow = false, 6000)
+                        this.autocompleteLocations = res;
+                        if(this.isSubmitted) {
+                            this.autocompleteShow = false;
+                            this.isSubmitted = false;
+                        } else {
+                            this.autocompleteShow = true;
+                        }
+                    });
+        }, 800),
+        searchLocation() {
+            if(this.locationName) {
                 console.log(`Looking for location: ${this.locationName} ...`);
+                this.autocompleteShow = false;
+                this.isSubmitted=true;
                 susPlacesService.getLocation(this.locationName)
                     .then(res => {
                         this.$emit('locationChanged', res)
                     });
-                susPlacesService.getAutocompleteList(this.locationName)
-                    .then(res => {
-                        this.autocompleteLocations = res;
-                        console.log(res)
-                    });
             }
-        }, 800),
-        searchLocation() {
-            susPlacesService.setCenter({
-                lat: 32.3749831,
-                lng: 34.9120554
-            });
         },
         setLocationName(location) {
             this.locationName = location;

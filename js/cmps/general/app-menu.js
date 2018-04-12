@@ -15,12 +15,12 @@ export default {
                 </router-link>
             </li>
             <li>
-                <router-link to="/susMail">
+                <router-link to="/sus-mail">
                     <img src="./img/general/email.svg" alt="email" />
                 </router-link>
             </li>
             <li>
-                <router-link to="/susPlaces">
+                <router-link to="/sus-places">
                     <img src="./img/general/map.svg" alt="map" />
                 </router-link>
             </li>

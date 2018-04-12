@@ -26,6 +26,13 @@ a:hover, button:hover {
     padding: 0;
 }
 
+.clear-btn {
+    border: 0px;
+    outline: none;
+    background-color: white;
+    text-align: left;
+}
+
 .flex-nav {
     display: flex;
     height: 64px;

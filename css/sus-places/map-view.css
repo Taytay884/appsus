@@ -1,4 +1,5 @@
 .sus-places .map-view {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: calc(100vw - 320px);

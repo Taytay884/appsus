@@ -3,6 +3,7 @@ import placesList from '../../cmps/sus-places/places-list.js'
 import googleMap from '../../cmps/sus-places/google-map.js'
 import mapSearchPlace from '../../cmps/sus-places/map-search-place.js'
 import locationDetails from '../../cmps/sus-places/location-details.js'
+import placeEdit from '../../cmps/sus-places/place-edit.js'
 
 export default {
     data() {
@@ -30,6 +31,7 @@ export default {
                         <div></div>
                     </div>
                     <google-map></google-map>
+                    <place-edit></place-edit>
                 </section>
             </main>
         </section>
@@ -41,6 +43,7 @@ export default {
         placesList,
         googleMap,
         mapSearchPlace,
-        locationDetails
+        locationDetails,
+        placeEdit
     }
 }
