@@ -1,15 +1,12 @@
 import home from './pages/home/home.js'
 import susMail from './pages/sus-mail/sus-mail.js'
-// import about from './pages/susKeep/susKeep.js'
-// import car from './pages/car/car.js'
-// import carDetails from './pages/car/car-details.js'
-// import carEdit from './pages/car/car-edit.js'
+import susPlaces from './pages/sus-places/sus-places.js'
+
 
 const routes = [
     { path: '/', component: home },
     { path: '/susMail', component: susMail },
-    // { path: '/susKeep', component: car },
-    // { path: '/susPlaces', component: carEdit },
+    { path: '/susPlaces', component: susPlaces },
 ];
 
 Vue.use(VueRouter);
