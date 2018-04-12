@@ -6,7 +6,7 @@ export default {
             <h2 class="logo">susPlaces</h2>
             <ul class="navbar-links clean-list">
             </ul>
-            <app-menu></app-menu>
+            <app-menu hidden></app-menu>
         </section>
     `,
     components: {
