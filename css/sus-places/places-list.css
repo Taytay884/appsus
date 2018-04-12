@@ -1,0 +1,11 @@
+.sus-places .places-list-container {
+    width: 300px;
+    margin-right: 10px;
+    background: green;
+}
+.sus-places .places-list {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: 75px;
+    background: blue;
+}

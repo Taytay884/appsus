@@ -1,5 +1,7 @@
-.app-menu-btn {
+.app-menu {
     position: relative;
+    top: 0px;
+    right: 0px;
 }
 
 .apps-container {

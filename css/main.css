@@ -1,5 +1,7 @@
+@import '../../lib/foxy.css';
 @import './home/home.css';
 @import './sus-mail/sus-mail.css';
+@import './sus-places/sus-places.css';
 
 #app {
     height: inherit;
