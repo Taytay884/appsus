@@ -2,7 +2,7 @@ import susPlacesService from '../../services/google-map.service.js';
 
 export default {
     template: `
-    <section>
+    <section class="map-search-place">
         <input type="search" placeholder="Search location..." v-model="locationName" @input="findLocation" @change="findLocation"/>
         <ul class="autocomplete-list clean-list">
             <li v-for="location in autocompleteLocations" @click="setLocationName(location)">{{ location }}</li>
