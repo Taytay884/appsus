@@ -1,4 +1,4 @@
-import susPlacesService from '../../services/google-map.service.js';
+import susPlacesService from '../../../services/sus-places/google-maps/google-map.service.js';
 
 export default {
     template: `

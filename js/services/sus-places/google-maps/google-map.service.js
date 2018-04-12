@@ -1,8 +1,7 @@
 import {
     GoogleMapsApi
 } from './gmap.class.js';
-import eventBusService from './event-bus.service.js';
-
+import eventBusService from '../../event-bus.service.js';
 
 const GOOGLE_API_KEY = 'AIzaSyBLudm0GgFeS_-v7yAud09Wg4oAWJ4sLrg';
 
@@ -41,7 +40,7 @@ function getLocation(locationName) {
             map.panTo(mapData.results[0].geometry.location);
             addMarker(mapData.results[0].geometry.location);
             return mapData.results[0];
-        });
+        })
 }
 
 function getLocationByPos(lat, lng) {
@@ -107,18 +106,3 @@ function addMarker(loc) {
     // markers.push(marker);
     console.log(tempMarker);
 }
-
-// let removeMarkers = () => {
-//     markers.forEach((marker) => {
-//         marker.setMap(null);
-//     })
-//     markers = [];
-// }
-
-// export default {
-//     initMap,
-//     addMarker,
-//     removeMarkers,
-//     setCenter,
-//     map
-// }
