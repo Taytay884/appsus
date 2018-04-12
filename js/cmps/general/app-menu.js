@@ -6,8 +6,8 @@ export default {
     },
     template: `
     <section class="app-menu">
-        <i class="fas fa-angle-down fa-3x">
-        </i>
+        <div class="app-menu-btn fas fa-angle-down fa-3x"></div>
+        
         <ul class="clean-list apps-container">
             <li>
                 <router-link to="/">
@@ -28,4 +28,4 @@ export default {
         </ul>
     </section>
     `
-}
+}   

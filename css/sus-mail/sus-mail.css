@@ -1,0 +1,46 @@
+@import './navbar.css';
+@import './side-menu.css';
+@import './new-mail/new-mail.css';
+@import './inbox/inbox.css';
+
+.sus-mail * {
+    border: 1px solid black;    
+} 
+
+.sus-mail {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+}
+
+.sus-mail main {
+    flex-grow: 1;
+    display: flex;
+    position: relative;
+}
+
+.sus-mail .content-container {
+    width: 50%;
+    flex-grow: 1;
+}
+
+.floating-add-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+@media (min-width: 850px) {   
+    .sus-mail .hamburger {
+        display: none;
+    }
+    .side-menu {
+        position: initial;
+    }
+    .side-menu .new-mail-btn {
+        display: block;
+    }   
+    .floating-add-btn {
+        display: none;
+    }
+}
