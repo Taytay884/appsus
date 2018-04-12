@@ -1,10 +1,13 @@
+import susPlacesService from '../../services/google-map.service.js';
+
 export default {
-    template:`
-    <section class="google-map">
-        <div class="menu-bar flex-bar">
-            <h2>SEARCH</h2>
-            <h2>location details</h2>
-        </div>
-    </section>
-    `
+    template: `
+        <div id="map"></div>
+    `,
+    data() {
+        return {}
+    },
+    mounted() {
+        susPlacesService.initMap()
+    },
 }
