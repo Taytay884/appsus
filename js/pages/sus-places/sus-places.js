@@ -1,10 +1,9 @@
 import navbar from '../../cmps/sus-places/navbar.js'
-import placesList from '../../cmps/sus-places/places-list.js'
-import googleMap from '../../cmps/sus-places/google-map.js'
-import mapSearchPlace from '../../cmps/sus-places/map-search-place.js'
-import locationDetails from '../../cmps/sus-places/location-details.js'
+import placesList from '../../cmps/sus-places/places-list/places-list.js'
+import mapView from '../../cmps/sus-places/map-view/map-view.js'
 
 export default {
+<<<<<<< HEAD
     data() {
         return {
             currLocation: {}
@@ -15,6 +14,8 @@ export default {
             this.currLocation = newLocation;
         }
     },
+=======
+>>>>>>> e53267e1d35f22434c03d31fdd39364ae099d1e4
     template: `
         <section class="sus-places">
             <header>
@@ -22,14 +23,7 @@ export default {
             </header>
             <main class="flex space-between">
                 <places-list></places-list>
-                <section class="map-view">
-                    <div class="menu-bar flex-bar">
-                        <map-search-place @locationChanged="setLocation"></map-search-place>
-                        <location-details :location="currLocation"></location-details>
-                        <div></div>
-                    </div>
-                    <google-map></google-map>
-                </section>
+                <map-view></map-view>
             </main>
         </section>
         
@@ -38,8 +32,6 @@ export default {
     components: {
         navbar,
         placesList,
-        googleMap,
-        mapSearchPlace,
-        locationDetails
+        mapView
     }
 }

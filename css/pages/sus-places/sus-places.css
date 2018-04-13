@@ -2,6 +2,14 @@
 @import 'places-list.css';
 @import 'map-view.css';
 @import 'google-map.css';
+<<<<<<< HEAD:css/pages/sus-places/sus-places.css
+=======
+@import 'map-search-place.css';
+@import 'place-edit.css';
+@import 'img-upload.css';
+@import '../general/app-menu.css';
+
+>>>>>>> e53267e1d35f22434c03d31fdd39364ae099d1e4:css/sus-places/sus-places.css
 
 .sus-places header {
     margin-bottom: 20px;

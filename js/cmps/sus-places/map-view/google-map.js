@@ -1,8 +1,8 @@
-import susPlacesService from '../../services/google-map.service.js';
+import susPlacesService from '../../../services/sus-places/google-maps/google-map.service.js';
 
 export default {
     template: `
-        <div id="map"></div>
+        <div @click.native id="map"></div>
     `,
     data() {
         return {}

@@ -16,11 +16,17 @@ const routes = [
         children: [
             { path: '', component: inbox},
             { path: 'new-mail', component: newMail },
+<<<<<<< HEAD
             { path: 'read-mail/:mail?', component: readMail }
         ] 
     },
     { path: '/sus-places', component: susPlaces },
     { path: '/sus-keep', component: susKeep },
+=======
+            { path: 'read-mail', component: readMail }
+        ] },
+    { path: '/sus-places', component: susPlaces },
+>>>>>>> e53267e1d35f22434c03d31fdd39364ae099d1e4
 ];
 
 Vue.use(VueRouter);
