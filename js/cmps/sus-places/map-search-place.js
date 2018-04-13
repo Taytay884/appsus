@@ -19,7 +19,6 @@ export default {
     methods: {
         findLocation: _.debounce(function (e) {
             if (this.locationName) {
-                console.log(`Looking for location: ${this.locationName} ...`);
                 susPlacesService.getLocation(this.locationName)
                     .then(res => {
                         this.$emit('locationChanged', res)
@@ -27,7 +26,6 @@ export default {
                 susPlacesService.getAutocompleteList(this.locationName)
                     .then(res => {
                         this.autocompleteLocations = res;
-                        console.log(res)
                     });
             }
         }, 800),

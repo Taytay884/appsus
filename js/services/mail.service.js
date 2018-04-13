@@ -1,7 +1,6 @@
 import storageService from "./storage.service.js";
 import utilService from "./util.service.js";
-import filterMail from "../cmps/sus-mail/inbox/filter-mail.js";
-import { FILTER_READ_MODES } from '../cmps/sus-mail/inbox/filter-mail.js';
+import filterMail, { FILTER_MODES, SORT_MODES } from "../cmps/sus-mail/inbox/filter-mail.js";
 
 function query() {
     return storageService.load('mails')
@@ -25,6 +24,7 @@ function genMails(mailCount) {
             title: utilService.genLorem(),
             content: utilService.genLorem(20),
             read: true,
+            date: utilService.getRandomIntInclusive(100000000000, 1000000000000),
         }
     }
 }
@@ -42,16 +42,15 @@ function saveMail(mailValues) {
     function createMailItem(mailValues) {
         mailValues.sentFrom = utilService.genRandomStr(5);
         mailValues.id = Date.now();
+        mailValues.date = Date.now();
         mailValues.read = false;
         return mailValues;
     }
 }
 
 function filterMails(mails, filterValue) {
-    console.log('really filtering', filterValue);
-    console.log(FILTER_READ_MODES);
-    if (filterValue === FILTER_READ_MODES.ALL) return mails
-    else if (filterValue === FILTER_READ_MODES.READ) {
+    if (!filterValue || filterValue === FILTER_MODES.ALL) return mails
+    else if (filterValue === FILTER_MODES.READ) {
         return mails.filter(mail => {
             return mail.read === true;
         })
@@ -62,8 +61,36 @@ function filterMails(mails, filterValue) {
     }
 }
 
+function sortMails(mails, sortValue) {
+    if (!sortValue) return
+    else if (sortValue === SORT_MODES.TITLE) {
+        mails.sort((mailA, mailB) => {
+            return mailA.title < mailB.title;
+        })
+    } else {
+        mails.sort((mailA, mailB) => {
+            return mailA.date < mailB.date;
+        })
+    }
+}
+
+function toggleMailRead(mails, mailId) {
+}
+
+function getById(mailIdx) {
+    return query()
+        .then(mails => {
+            return mails.find(mail => {
+                return mail.id === mailIdx;
+            })
+        });
+}
+
 export default {
     query,
     saveMail,
-    filterMails
+    filterMails,
+    sortMails,
+    toggleMailRead,
+    getById
 }

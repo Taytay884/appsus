@@ -1,7 +1,15 @@
-@import '../../lib/foxy.css';
-@import './home/home.css';
-@import './sus-mail/sus-mail.css';
-@import './sus-places/sus-places.css';
+@import '../lib/foxy.css';
+@import './font.css';
+
+@import './general-cmps/app-menu.css';
+@import './general-cmps/navbar.css';
+@import './general-cmps/site-frame.css';
+
+@import './pages/home/home.css';
+@import './pages/sus-mail/sus-mail.css';
+@import './pages/sus-places/sus-places.css';
+
+/* css */
 
 #app {
     height: inherit;

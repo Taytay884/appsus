@@ -1,0 +1,21 @@
+.navbar {
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding: 8px 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+    color: #313131;
+}
+
+.logo {
+    font-family: gugi;
+    text-transform: lowercase;
+} .logo::first-letter {
+    text-transform: uppercase;
+}
+
+.slot-container {
+    flex-grow: 1;
+}

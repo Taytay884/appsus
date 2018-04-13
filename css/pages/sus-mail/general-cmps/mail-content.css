@@ -1,0 +1,101 @@
+.mail-content {
+    min-height: 100%;
+    min-width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #cfcfcf;
+}
+
+.mail-content-header, .new-mail-footer {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+}
+
+.mail-content-header {
+    background-color: whitesmoke;
+    height: 60px;
+}
+
+.mail-content-header h3 {
+    color: whitesmoke;
+}
+
+.new-mail-footer {
+    background-color: whitesmoke;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    padding-top: 10px; padding-bottom: 10px;
+    height: 60px;
+} 
+
+.new-mail-footer > * {
+    height: 100%;
+}
+
+.new-mail-footer .send-btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -2px;    
+    color: rgba(255, 255, 255, .9);
+    background-color: #45aaf2;    
+    box-shadow: 0 4px 0 0 #2f8dcf;    
+    border-radius: 5px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.mail-content-main {
+    flex-grow: 1;
+    display: flex;
+}
+
+.mail-content-main form {
+    flex-grow: 1;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mail-content-main form, .mail-content-main input, .mail-content-main textarea {
+    font-size: 20px;
+}
+
+.main-section-container {
+    border-bottom: 1px solid #cfcfcf;
+    padding: .7em;
+}
+
+.mail-form input, textarea {
+    border: none;
+    width: 100%;
+}
+
+.mail-form input:focus, .mail-form textarea {
+    outline: none;
+}
+
+.to-container span {
+    margin-right: .7em;
+}
+
+.to-container input {
+    font-size: 16px;
+    border-radius: 15px;
+    width: 10em;
+    padding: .5em 0;
+    text-align: center;
+}
+
+.msg-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.msg-container textarea {
+    flex-grow: 1;
+    resize: none;
+}

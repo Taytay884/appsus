@@ -1,0 +1,16 @@
+/* fonts */
+
+@font-face {
+    font-family: 'dohen';
+    src: url(../font/dohen/dohen.ttf);
+}
+
+@font-face {
+    font-family: 'gugi';
+    src: url(../font/gugi/gugi.ttf);
+}
+
+@font-face {
+    font-family: 'open-sans';
+    src: url(../font/open-sans/OpenSans-Regular.ttf);
+}

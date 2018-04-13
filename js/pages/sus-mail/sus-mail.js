@@ -1,22 +1,33 @@
-import navbar from '../../cmps/sus-mail/navbar.js';
-import sideMenu from '../../cmps/sus-mail/side-menu.js';
+import siteFrame from '../../cmps/general/site-frame.js';
 
 export default {
     template: `
     <section class="sus-mail">
-        <header>
-            <navbar class="flex-navbar"  @toggleSideMenu="showSideMenu = !showSideMenu"></navbar>
-        </header>  
-        <main>
-            <sideMenu :class="{ show: showSideMenu }"></sideMenu> 
-            <router-view class="content-container padding">
+        <site-frame title="mail">
+            
+            <template slot="side-menu">
+                <ul class="clean-list">
+                    <li>
+                        <router-link to="/sus-mail/new-mail" 
+                                     class="new-mail-btn">        
+                            new letter
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/sus-mail" >
+                            Inbox
+                        </router-link>
+                    </li>
+                </ul>
+            </template>
+
+            <router-view>
             </router-view>
-        </main>        
+        </site-frame>   
     </section>
      `,
     components: {
-        navbar,
-        sideMenu,
+        siteFrame
     },
     data() {
         return {

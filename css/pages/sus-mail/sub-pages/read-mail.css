@@ -1,0 +1,27 @@
+.read-mail .mail-content-header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.read-mail .mail-content-header svg {
+    height: 30px;
+    width: 30px;
+    color: #505050;
+}
+
+.read-mail .mail-content-main {
+    padding: 20px;
+    flex-direction: column;
+}
+
+.read-mail .mail-txt {
+    margin: 1.5em 0;
+}
+
+.read-mail h2 {
+    font-size: 20px;
+}
+
+.read-mail h3 {
+    font-weight: normal;
+}

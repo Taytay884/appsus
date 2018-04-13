@@ -1,32 +1,71 @@
-const FILTER_READ_MODES = {
+const FILTER_MODES = {
     READ: 'read',
     UNREAD: 'unread',
     ALL: 'all'
 }
-export {FILTER_READ_MODES};
-Object.freeze(FILTER_READ_MODES);
+
+const SORT_MODES = {
+    TITLE: 'title',
+    DATE: 'date'
+}
+
+Object.freeze(FILTER_MODES);
+Object.freeze(SORT_MODES);
+
+export {FILTER_MODES};
+export {SORT_MODES};
 
 export default {
     data() {
         return {
-            readFilter: 'all'
+            filter: FILTER_MODES.ALL,
+            sort: SORT_MODES.DATE,
+        }
+    },
+    watch: {
+        filter: function() {
+            this.$emit('filter', this.filter);
+        },
+        sort: function() {
+            this.$emit('sort', this.sort);
         }
     },
     methods: {
-        emitFilter() {
-            this.$emit('filter', this.readFilter);
-        }
+        // emitFilter() {
+        // },
+        // emitSort() {
+            // this.$emit('sort', this.sort);
+        // }
     },
     template: `
-        <section>
-            <form>
-                filter
-                <select v-model="readFilter" @change="emitFilter()">
-                    <option value="all">all</option>
-                    <option value="unread">unread</option>
-                    <option value="read">read</option>
-                </select>
-                <!-- <input type="select" /> -->
+        <section class="filter-mail">
+            <form class="inbox-filters">
+                <div class="txt-group-container">
+                    <h4>filter :</h4> 
+                    <div class="custom-radio-group"> 
+                        <label :class="{ active: filter === 'all' }">
+                            all <input type="radio" value="all" v-model="filter" hidden/>
+                        </label>
+                        <label :class="{ active: filter === 'unread' }">
+                            unread <input type="radio" value="unread" v-model="filter" hidden/>
+                        </label>
+                        <label :class="{ active: filter === 'read' }">
+                            read <input type="radio" value="read" v-model="filter" hidden/>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="txt-group-container">
+                    <h4>sort :</h4>
+                    <div class="custom-radio-group"> 
+                        <label :class="{ active: sort === 'date' }">
+                            date <input type="radio" value="date" v-model="sort" hidden/>
+                        </label>
+                        <label :class="{ active: sort === 'title' }">
+                            title <input type="radio" value="title" v-model="sort" hidden/>
+                        </label>
+                    </div>
+                </div>
             </form>
         </section>
     `

@@ -1,0 +1,82 @@
+@import './general-cmps/mail-content.css';
+
+@import './sub-pages/inbox.css';
+@import './sub-pages/read-mail.css';
+@import './sub-pages/new-mail.css';
+
+.sus-mail {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+}
+
+.sus-mail .navbar {
+    background-color: #45aaf2;
+}
+
+.sus-mail .side-menu {
+    background-color: #81c4f3;
+}
+
+.sus-mail main * {
+    font-family: open-sans;
+}
+
+.sus-mail .side-menu ul {
+    font-size: 18px;
+}
+
+.sus-mail .side-menu li:not(:first-child) {
+    font-weight: bold;
+    color: #313131;
+    border-bottom: 1px solid rgba(0, 0, 0, .5);
+} .sus-mail .side-menu li:not(:first-child):hover, 
+.sus-mail .side-menu .router-link-active:not(.new-mail-btn) {
+    background-color: #c0e2f9;
+}
+
+.sus-mail .side-menu li:nth-child(2) {
+    border-top: 1px solid rgba(0, 0, 0, .5);
+}
+
+.side-menu .router-link, 
+.side-menu .router-link-active:not(.new-mail-btn) {
+    display: block;
+    padding: 20px;    
+    width: 100%;
+    color: currentColor;
+}
+
+.new-mail-btn {
+    display: none;
+    text-align: center;
+    color: rgba(0, 0, 0, .7);
+    box-shadow: 0 4px 0 0 #0a793e;
+    background-color: #20bf6b;    
+    margin: 20px;
+    margin-bottom: 24px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+} .new-mail-btn:active {
+    position: relative;
+    top: 4px;
+    box-shadow: none;
+}
+
+.sus-mail .content-container {
+    display: flex;
+}
+
+.sus-mail .content-container > * {
+    min-width: 100%;
+}
+
+@media (min-width: 850px) {   
+    .new-mail-btn {
+        display: block;
+    }   
+    .floating-add-btn {
+        display: none;
+    }
+}

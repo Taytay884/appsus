@@ -12,7 +12,6 @@ export default {
     },
     methods: {
         setLocation(newLocation) {
-            console.log(newLocation)
             this.currLocation = newLocation;
         }
     },

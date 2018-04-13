@@ -1,0 +1,16 @@
+@import 'navbar.css';
+@import 'places-list.css';
+@import 'map-view.css';
+@import 'google-map.css';
+
+.sus-places header {
+    margin-bottom: 20px;
+}
+
+.sus-places main {
+    height: calc(100vh - 90px);
+}
+
+.sus-places {
+    padding: 0px 10px 10px;
+}

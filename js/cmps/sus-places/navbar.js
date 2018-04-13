@@ -1,4 +1,4 @@
-import appMenu from '../general/app-menu.js';
+import appMenu from '../general/navbar-cmps/app-menu.js';
 
 export default {
     template: `

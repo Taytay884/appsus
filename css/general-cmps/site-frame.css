@@ -1,0 +1,165 @@
+/* COMPONENT side-menu */
+
+.side-menu {
+    position: absolute;    
+    z-index: 1;
+    background-color: whitesmoke;
+    bottom: 0; top: 0;
+    width: 250px;
+    left: -250px;
+    transition: left .5s;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.26);
+}
+
+.side-menu.show {
+    left: 0px;
+}
+
+/* COMPONENT site-frame */
+
+.site-frame {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.site-frame .navbar {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+}
+
+.site-frame main {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+    margin-top: 64px;
+    max-width: 100vw;
+}
+
+.site-frame .content-container {
+    width: 1px; 
+    flex-grow: 1;
+}
+
+/* COMPONENT navbar INSIDE site-menu */
+
+.hamburger-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger {
+    color: currentColor;
+    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 330ms ease-out, color .3s;
+} .hamburger:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.hamburger.open {
+    transform: rotate(-45deg);
+}
+
+.line-menu {
+    background-color: currentColor;
+    border-radius: 5px;
+    width: 100%;
+    height: 6px;
+}
+
+.line-menu.half {
+    width: 50%;
+}
+
+.line-menu.start {
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: right;
+}
+
+.open .line-menu.start {
+    transform: rotate(-90deg) translateX(3px);
+}
+
+.line-menu.end {
+    align-self: flex-end;
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: left;
+}
+
+.open .line-menu.end {
+    transform: rotate(-90deg) translateX(-3px);
+}
+
+/* hamburger INSIDE navbar */
+
+.hamburger-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger {
+    color: currentColor;
+    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 330ms ease-out, color .3s;
+} .hamburger:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.hamburger.open {
+    transform: rotate(-45deg);
+}
+
+.line-menu {
+    background-color: currentColor;
+    border-radius: 5px;
+    width: 100%;
+    height: 6px;
+}
+
+.line-menu.half {
+    width: 50%;
+}
+
+.line-menu.start {
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: right;
+}
+
+.open .line-menu.start {
+    transform: rotate(-90deg) translateX(3px);
+}
+
+.line-menu.end {
+    align-self: flex-end;
+    transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+    transform-origin: left;
+}
+
+.open .line-menu.end {
+    transform: rotate(-90deg) translateX(-3px);
+}
+
+@media (min-width: 850px) {   
+    .hamburger {
+        display: none;
+    }
+    .side-menu {
+        display: block;
+        position: initial;
+    }
+}

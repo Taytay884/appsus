@@ -1,15 +1,16 @@
-import navbar from '../../cmps/home/navbar.js'
+import navbar from '../../cmps/general/navbar.js'
 
 export default {
     template: `
         <section class="home">
             <header>
-                <navbar class="flex-navbar">
-            </navbar>
+                <navbar title="Appsus">
+                    <ul class="navbar-links clean-list">
+                        <li>about</li>
+                        <li>products</li>
+                    </ul>
+                </navbar>
             </header>
-            <main>
-                <!-- <appsus-about></appsus-about> -->
-            </main>
         </section>
     `,
     components: {

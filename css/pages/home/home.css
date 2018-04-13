@@ -1,0 +1,10 @@
+@import '../../general-cmps/navbar.css';
+
+.home .navbar {
+    background-color: orangered;
+}
+
+.home .navbar-links li {
+    display:inline-block;
+    padding: 10px;
+}
