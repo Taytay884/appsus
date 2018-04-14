@@ -49,7 +49,10 @@ a {
     border: none;
     outline: none;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 197ea882819e1da6e6ad9cfdaae24caed0f03fb8
 .clear-btn {
     border: 0px;
     outline: none;
@@ -57,6 +60,21 @@ a {
     text-align: left;
 }
 
+<<<<<<< HEAD
+=======
+.flex-nav {
+    display: flex;
+    height: 64px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+.padding {
+    padding: 20px;
+}
+
+>>>>>>> 197ea882819e1da6e6ad9cfdaae24caed0f03fb8
 .flex-bar {
    display: flex;
    justify-content: space-between;
@@ -75,4 +93,8 @@ a {
 
 .space-around {
     justify-content: space-around;
+}
+
+.flex-column {
+    flex-direction: column;
 }

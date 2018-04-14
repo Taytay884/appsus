@@ -1,14 +1,64 @@
 .places-list-container {
-    width: 300px;
+    width: 400px;
     margin-right: 10px;
     background: green;
 }
+
 .places-list {
     display: grid;
     grid-template-columns: 100%;
-    grid-auto-rows: 75px;
+    height: calc(100% - 50px);
+    grid-auto-rows: calc((100% - 50px) / 6);
     background: blue;
+    overflow: hidden;
+    overflow-y: scroll;
 }
+
 .places-list .selected {
     background: lightgreen;
+}
+
+.places-list li {
+    cursor: pointer;
+    transition: all 275ms ease-in-out;
+    overflow: hidden;
+}
+
+.places-list li:hover {
+    background: rgb(78, 218, 78);
+}
+
+.places-list li .text-container {
+    padding: 4px;    
+}
+
+.places-list li .buttons-tags-container {
+    height: 30px;
+    margin-bottom: 4px;
+    padding-left: 2px;
+}
+
+.places-list li button {
+    height: 100%;
+}
+
+.places-list li .tags-container {
+    height: 100%;
+    cursor: pointer;
+    border-radius: 20px 0px 0px 20px;
+    background: lightgray;
+    color: white;
+    font-weight: bold;
+    padding: 5px 0px 5px 5px;
+    transition: all 275ms ease-in-out;
+    overflow: hidden;
+}
+
+.places-list li .tag {
+    padding: 0px 3px;
+    cursor: pointer;
+}
+
+.places-list li .tag:not(:last-child) {
+    border-right: 2px solid white;
 }
