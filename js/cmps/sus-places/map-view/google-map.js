@@ -3,7 +3,7 @@ import eventBusService from '../../../services/event-bus.service.js';
 
 export default {
     created() {
-        eventBusService.$on('placeClicked', clickedPlaceData => {
+        eventBusService.$on('detailsOpened', clickedPlaceData => {
             this.$router.push({ path: `/sus-places/place-details/${clickedPlaceData.id}` });
             googleMapService.setCenter({
                 lat: clickedPlaceData.lat,
@@ -19,12 +19,5 @@ export default {
     },
     mounted() {
         googleMapService.initMap()
-        // eventBusService.$on('placeClicked', clickedPlaceData => {
-        //     this.$router.push({ path: `/sus-places/place-details/${clickedPlaceData.id}` });
-        //     googleMapService.setCenter({
-        //         lat: clickedPlaceData.lat,
-        //         lng: clickedPlaceData.lng
-        //     })
-        // })
     },
 }

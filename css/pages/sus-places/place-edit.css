@@ -1,10 +1,12 @@
 .place-edit {
     position: absolute;
-    z-index: 1;
+    background: #ff9800;
+    border-radius: 0.4em;
+    z-index: 2;
     height: 30%;
     width: 100%;
     bottom: 20px;
-    padding: 0px 15px;
+    padding: 10px 15px;
     display: flex;
     /* justify-content: space-between; */
     align-items: center;

@@ -7,16 +7,9 @@
 @import 'place-edit.css';
 @import 'img-upload.css';
 @import '../../general-cmps/app-menu.css';
-.sus-places header {
-    margin-bottom: 20px;
-}
 
 .sus-places main {
-    height: calc(100vh - 90px);
-}
-
-.sus-places {
-    padding: 0px 10px 10px;
+    height: 100%;
 }
 
 .sus-places .menu-bar {

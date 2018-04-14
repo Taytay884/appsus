@@ -18,7 +18,7 @@ export default {
             </div>
             <h2 class="logo">{{title}}</h2>
             <div class="slot-container">
-                <slot name="content"></slot>
+                <slot></slot>
             </div>
             <app-menu></app-menu>
         </section>

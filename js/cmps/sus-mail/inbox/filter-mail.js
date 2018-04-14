@@ -18,6 +18,7 @@ export {SORT_MODES};
 export default {
     data() {
         return {
+            search: '',
             filter: FILTER_MODES.ALL,
             sort: SORT_MODES.DATE,
         }
@@ -28,18 +29,19 @@ export default {
         },
         sort: function() {
             this.$emit('sort', this.sort);
+        },
+        search: function() {
+            this.$emit('search', this.search);
         }
-    },
-    methods: {
-        // emitFilter() {
-        // },
-        // emitSort() {
-            // this.$emit('sort', this.sort);
-        // }
     },
     template: `
         <section class="filter-mail">
-            <form class="inbox-filters">
+            <form class="inbox-filters" @submit.prevent>
+                <div class="txt-group-container search-container">
+                    <input type="search" v-model="search" />
+                    <img  src="../../../../img/general/search.svg" />
+                </div>
+
                 <div class="txt-group-container">
                     <h4>filter :</h4> 
                     <div class="custom-radio-group"> 

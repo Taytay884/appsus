@@ -10,7 +10,7 @@ eventBusService.$on('markerClicked', (markerId) => {
 })
 
 function getPlaces() {
-    if(placesDB.length) return;
+    if(placesDB.length) return placesDB;
     return storageService.load(PLACES_KEY).then((places) => {
         if (places) {
             places.forEach((place) => {
@@ -76,7 +76,6 @@ function convertToPlace(placeData, markerId, latLng) {
         imgs: []
     }
     if(placeData.length) {
-        console.log(Array.isArray(placeData))
         if (Array.isArray(placeData))
             place.name = placeData[0].formatted_address;
         else 
