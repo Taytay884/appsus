@@ -2,9 +2,12 @@ import utilService from '../../../services/util.service.js';
 import eventBusService, { EVENTS } from '../../../services/event-bus.service.js';
 
 export default {
+    created() {
+        console.log(mails);
+    },
     props: {
         'mails': {
-            type: Array,
+            // type: Array,
             default: 'hey'
         }
     },
