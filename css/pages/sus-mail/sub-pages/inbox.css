@@ -128,7 +128,9 @@
     width: 30px;
 }
 
-.sent-from, .title, .content {
+.sent-from,
+.txt-group-container .title,
+.content {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -139,7 +141,7 @@
     min-width: 4em;
 }
 
-.title {
+.txt-group-container .title {
     width: 4em;
     min-width: 4em;
 }
