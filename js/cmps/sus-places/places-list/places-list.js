@@ -44,7 +44,7 @@ export default {
                     v-for="place in places" @click="selectPlace(place.id)">
                         <div class="text-container">
                             <h1>{{ place.name }}</h1>
-                            <p>{{ place.description.substr(0, 70) }}<p>
+                            <p class="fade">{{ place.description }}</p>
                         </div>
                         <div class="buttons-tags-container flex space-between">
                             <div>

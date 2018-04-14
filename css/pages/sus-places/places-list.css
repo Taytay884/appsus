@@ -1,3 +1,7 @@
+:root {
+    --main-bg-color: 0, 0, 255;
+}
+
 .places-list-container {
     width: 400px;
     margin-right: 10px;
@@ -30,6 +34,18 @@
 
 .places-list li .text-container {
     padding: 4px;    
+}
+.places-list li .text-container h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.places-list li .text-container p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .places-list li .buttons-tags-container {
