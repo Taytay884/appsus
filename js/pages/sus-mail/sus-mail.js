@@ -1,10 +1,18 @@
 import siteFrame from '../../cmps/general/site-frame.js';
 
 export default {
+    data() {
+        return {
+            showSideMenu: false,
+        }
+    },
+    components: {
+        siteFrame,
+    },
     template: `
     <section class="sus-mail">
+        
         <site-frame title="mail">
-            
             <template slot="side-menu">
                 <ul class="clean-list">
                     <li>
@@ -27,12 +35,4 @@ export default {
         </site-frame>   
     </section>
      `,
-    components: {
-        siteFrame
-    },
-    data() {
-        return {
-            showSideMenu: false,
-        }
-    },
 }

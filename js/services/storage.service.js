@@ -1,3 +1,9 @@
+const STORAGE_KEYS = {
+    MAILS: 'maills'
+}
+Object.freeze(STORAGE_KEYS);
+export { STORAGE_KEYS };
+
 function save(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
     return Promise.resolve();

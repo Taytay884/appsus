@@ -1,11 +1,15 @@
-import storageService from "./storage.service.js";
+import storageService, {STORAGE_KEYS} from "./storage.service.js";
 import utilService from "./util.service.js";
 import filterMail, { FILTER_MODES, SORT_MODES } from "../cmps/sus-mail/inbox/filter-mail.js";
 
 function query() {
-    return storageService.load('mails')
+    return storageService.load(STORAGE_KEYS.MAILS)
         .then(mails => {
-            if (!mails) return genMails(5)
+            if (!mails) {
+                var mails = genMails(5)
+                storageService.save(STORAGE_KEYS.MAILS, mails);
+                return mails;
+            }
             else return mails;
         })
 }
@@ -24,16 +28,20 @@ function genMails(mailCount) {
             title: utilService.genLorem(),
             content: utilService.genLorem(20),
             read: true,
-            date: utilService.getRandomIntInclusive(100000000000, 1000000000000),
+            date: getRandomDate(),
+        }
+
+        function getRandomDate() {
+            return utilService.getRandomIntInclusive(100000000000, 1000000000000);
         }
     }
 }
 
 function saveMail(mailValues) {
-    return storageService.load('mails')
+    return storageService.load(STORAGE_KEYS.MAILS)
         .then(mails => {
             mails.push(createMailItem(mailValues));
-            return storageService.save('mails', mails)
+            return storageService.save(STORAGE_KEYS.MAILS, mails)
                 .then(() => {
                     return mails;
                 });
@@ -74,16 +82,15 @@ function sortMails(mails, sortValue) {
     }
 }
 
-function toggleMailRead(mails, mailId) {
-}
-
-function getById(mailIdx) {
-    return query()
-        .then(mails => {
-            return mails.find(mail => {
-                return mail.id === mailIdx;
-            })
-        });
+function searchMails(mails, searchStr) {
+    console.log(mails, searchStr);
+    searchStr = searchStr.toLowerCase();
+    return this.mails.filter(mail => {
+        if (mail.title) {
+            var title = mail.title.toLowerCase();
+            return title.includes(searchStr);
+        }
+    });
 }
 
 export default {
@@ -91,6 +98,5 @@ export default {
     saveMail,
     filterMails,
     sortMails,
-    toggleMailRead,
-    getById
+    searchMails
 }

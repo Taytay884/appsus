@@ -4,7 +4,9 @@ import mailContent from '../../../cmps/sus-mail/general/mail-content.js'
 export default {
     template: `
         <section class="new-mail">
+
             <mail-content>
+
                 <template slot="header">
                     <router-link to="/sus-mail/">
                         <button class="clean-btn fas fa-arrow-left"></button>
@@ -13,7 +15,10 @@ export default {
                 </template>
 
                 <template slot="main">
+
+                    <!-- labels added for seo -->
                     <form class="mail-form">
+                    
                         <div class="main-section-container to-container">
                             <label for="send-to" hidden></label>
                             <span>to</span>
@@ -28,7 +33,9 @@ export default {
                         <div class="main-section-container msg-container">
                             <textarea v-model="mailValues.content" placeholder="What are you saying?"></textarea>
                         </div>
+
                     </form>
+                    
                 </template>
 
                 <template slot="footer">
@@ -40,7 +47,9 @@ export default {
                         </router-link>
                     </div>    
                 </template>
+
             </mail-content>
+
         </section>
     `,
     data() {

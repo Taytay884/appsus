@@ -7,9 +7,6 @@ import readMail from './pages/sus-mail/sub-pages/read-mail.js';
 
 import susPlaces from './pages/sus-places/sus-places.js';
 
-import susKeep from './pages/sus-keep/sus-keep.js';
-
-
 const routes = [
     { path: '/', component: home },
     { path: '/sus-mail', component: susMail, 
@@ -20,7 +17,6 @@ const routes = [
         ] 
     },
     { path: '/sus-places', component: susPlaces },
-    { path: '/sus-keep', component: susKeep },
 ];
 
 Vue.use(VueRouter);

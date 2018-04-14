@@ -1,36 +1,28 @@
 import filterMail, { SORT_MODES } from '../../../cmps/sus-mail/inbox/filter-mail.js';
-import mailList from '../../../cmps/sus-mail/inbox/mail-list.js';
 import mailContent from '../../../cmps/sus-mail/general/mail-content.js';
-import susMail from '../sus-mail.js';
+import mailList from '../../../cmps/sus-mail/inbox/mail-list.js';
 
 import eventBusService, { EVENTS } from '../../../services/event-bus.service.js';
-import storageService from '../../../services/storage.service.js';
+import storageService, { STORAGE_KEYS } from '../../../services/storage.service.js';
 import mailService from '../../../services/mail.service.js';
 
 export default {
     created() {
         mailService.query().then(mails => {
-            storageService.save('mails', mails);
             this.mails = this.mailsToShow = mails;
             mailService.sortMails(this.mails, SORT_MODES.DATE);
         });
 
         eventBusService.$on(EVENTS.MAIL_SENT, mailValues => {
             mailService.saveMail(mailValues)
-                .then(modifiedMails => {
-                    this.mails = modifiedMails;
+                .then(updatedMails => {
+                    this.mails = updatedMails;
                 });
         })
     },
     methods: {
         searchMails(searchStr) {
-            searchStr = searchStr.toLowerCase();
-            this.mailsToShow = this.mails.filter(mail => {
-                if (mail.title) {
-                    var title = mail.title.toLowerCase();
-                    return mail.title.toLowerCase().includes(searchStr);
-                }
-            });
+            this.mailsToShow = mailService.searchMails(this.mails, searchStr);
         },
         filterMails(filterValue) {
             this.mailsToShow = mailService.filterMails(this.mails, filterValue)
@@ -44,7 +36,7 @@ export default {
             })
             this.mails[mailIdx].read = !this.mails[mailIdx].read;
             this.mailsToShow = this.mails;
-            storageService.save('mails', this.mails);
+            storageService.save(STORAGE_KEYS.MAILS, this.mails);
         },
     },
     data() {
@@ -55,30 +47,31 @@ export default {
     },
     template: `
         <section class="inbox">
+
             <mail-content>
 
-                <template class="hey" slot="header">
-                    <filterMail @search="searchMails($event)"
-                                @filter="filterMails($event)" 
-                                @sort="sortMails($event)" ></filterMail>
-                </template>
+                <filterMail slot="header"
+                            @search="searchMails($event)"
+                            @filter="filterMails($event)" 
+                            @sort="sortMails($event)" >
+                </filterMail>
 
-                <template slot="main">
-                    <mailList slot="main"
-                              :mails="mailsToShow" 
-                              @mailOpened="toggleRead($event)"
-                              @toggleRead="toggleRead($event)"></mailList>
-                    <router-link to="/sus-mail/new-mail">
-                        <button class="floating-add-btn fas fa-plus"></button>
-                    </router-link>
-                </template>
+                <mailList slot="main"
+                            :mails="mailsToShow" 
+                            @mailOpened="toggleRead($event)"
+                            @toggleRead="toggleRead($event)"></mailList>
+
+                <router-link to="/sus-mail/new-mail">
+                    <button class="floating-add-btn fas fa-plus"></button>
+                </router-link>
 
             </mail-content>
+
         </section>
     `,
     components: {
+        mailContent,
         filterMail,
         mailList,
-        mailContent
     }
 }

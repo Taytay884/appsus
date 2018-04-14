@@ -5,5 +5,4 @@ new Vue({
     router,
     components: {
     }
-
 }) 

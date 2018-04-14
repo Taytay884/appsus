@@ -1,4 +1,5 @@
 import utilService from "../../../services/util.service.js";
+import eventBusService, {EVENTS} from '../../../services/event-bus.service.js';
 import mailContent from '../../../cmps/sus-mail/general/mail-content.js';
 
 export default {
@@ -10,11 +11,6 @@ export default {
             mail: null
         }
     },
-    methods: {
-        formatedDate(mailDate) {
-            return utilService.getDateFormated(mailDate);
-        }
-    },
     components: {
         mailContent
     },
@@ -22,12 +18,13 @@ export default {
         <section class="read-mail">
 
             <mail-content>
-
+            
                 <template slot="header">
                     <router-link to="/sus-mail/">
                         <button class="clean-btn fas fa-arrow-left"></button>
                     </router-link>
-                    <h2>{{mail.title ? mail.title : 'title less'}}</h2>
+
+                    <h2>{{mail.title ? mail.title : 'Titless'}}</h2>
                     <small>{{formatedDate(mail.date)}}</small>
                 </template>
                 
@@ -40,5 +37,10 @@ export default {
             </mail-content>
             
         </section>
-    `
+    `,
+    methods: {
+        formatedDate(mailDate) {
+            return utilService.getDateFormated(mailDate);
+        }
+    },
 }

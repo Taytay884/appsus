@@ -1,4 +1,5 @@
 import utilService from '../../../services/util.service.js';
+import eventBusService, { EVENTS } from '../../../services/event-bus.service.js';
 
 export default {
     props: {
@@ -11,15 +12,9 @@ export default {
         formatedDate(mailDate) {
             return utilService.getDateFormated(mailDate);
         },
-        emitReadToggle(mailId) {
-            this.$emit('toggleRead', mailId);
-        },
-        letterIcon(mailRead) {
-            return mailRead ? 'open-letter' : 'letter'; 
-        },
         readMail(mail) {
+            this.$router.push('/sus-mail/read-mail/'+mail.id);
             this.$emit('mailOpened', mail.id);
-            this.$router.push('/sus-mail/read-mail/'+ JSON.stringify(mail));
         }
     },
     template: `
@@ -29,7 +24,7 @@ export default {
                     @click="readMail(mail)"
                     class="mail-preview">
 
-                    <button @click.stop="emitReadToggle(mail.id)"
+                    <button @click.stop="$emit('toggleRead', mail.id);"
                             class="letter-icon-btn clean-btn"
                             :class="{ openLetter: mail.read }">
                     </button>
