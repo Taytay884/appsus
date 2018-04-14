@@ -63,7 +63,7 @@ export default {
                 <div class="content-container">
                     <slot></slot>
                 </div>
-            </main>    
+            </main>
 
             <slot name="floating-btn"></slot>
         </section>
