@@ -44,30 +44,17 @@ a {
     padding: 0;
 }
 
-<<<<<<< HEAD
 .clean-btn {
     background: none;
     border: none;
     outline: none;
-=======
+}
+
 .clear-btn {
     border: 0px;
     outline: none;
     background-color: white;
     text-align: left;
-}
-
-.flex-nav {
-    display: flex;
-    height: 64px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 16px;
-}
-
-.padding {
-    padding: 20px;
->>>>>>> e53267e1d35f22434c03d31fdd39364ae099d1e4
 }
 
 .flex-bar {

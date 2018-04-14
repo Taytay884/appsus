@@ -3,19 +3,16 @@ import placesList from '../../cmps/sus-places/places-list/places-list.js'
 import mapView from '../../cmps/sus-places/map-view/map-view.js'
 
 export default {
-<<<<<<< HEAD
-    data() {
-        return {
-            currLocation: {}
-        }
-    },
-    methods: {
-        setLocation(newLocation) {
-            this.currLocation = newLocation;
-        }
-    },
-=======
->>>>>>> e53267e1d35f22434c03d31fdd39364ae099d1e4
+    // data() {
+    //     return {
+    //         currLocation: {}
+    //     }
+    // },
+    // methods: {
+    //     setLocation(newLocation) {
+    //         this.currLocation = newLocation;
+    //     }
+    // },
     template: `
         <section class="sus-places">
             <header>
