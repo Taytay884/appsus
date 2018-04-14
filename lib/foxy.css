@@ -44,12 +44,11 @@ a {
     padding: 0;
 }
 
-<<<<<<< HEAD
 .clean-btn {
     background: none;
     border: none;
     outline: none;
-=======
+}
 .clear-btn {
     border: 0px;
     outline: none;
@@ -67,7 +66,6 @@ a {
 
 .padding {
     padding: 20px;
->>>>>>> e53267e1d35f22434c03d31fdd39364ae099d1e4
 }
 
 .flex-bar {
@@ -88,4 +86,8 @@ a {
 
 .space-around {
     justify-content: space-around;
+}
+
+.flex-column {
+    flex-direction: column;
 }

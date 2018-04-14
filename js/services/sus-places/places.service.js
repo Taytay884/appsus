@@ -36,7 +36,7 @@ function editPlace(editedPlace) {
         return place.id === editedPlace.id;
     })
     editedPlace.selected = false;
-    togglePreview(false);
+    highlightPlace(false);
     placesDB[placeIdx] = editedPlace;
     storageService.save(PLACES_KEY, placesDB);
 }
@@ -49,6 +49,7 @@ function deletePlace(id) {
     console.log(placesDB[placeIdx].markerId)
     googleMapService.removeMarker(placesDB[placeIdx].markerId);
     placesDB.splice(placeIdx, 1);
+    eventBusService.$emit('placeDeleted')
     storageService.save(PLACES_KEY, placesDB);
 }
 
@@ -62,7 +63,8 @@ function convertToPlace(placeData, markerId, latLng) {
         description: '',
         photos: [],
         markerId,
-        selected: false
+        selected: false,
+        imgs: []
     }
     if(placeData.length) {
         console.log(Array.isArray(placeData))
@@ -74,23 +76,16 @@ function convertToPlace(placeData, markerId, latLng) {
     return place;
 }
 
-function togglePreview(isOpen) {
-    if(selectedPlace) {
-        selectedPlace.selected = isOpen;
-        googleMapService.toggleMarker(selectedPlace.markerId, isOpen);
-        if (isOpen) 
-            eventBusService.$emit('placeClicked', selectedPlace)
-    }
-}
+
 
 function selectMarker(markerId) {
     let placeIdx = placesDB.findIndex((place) => {
         return place.markerId === markerId;
     })
-    togglePreview(false);
+    highlightPlace(false);
     if (placesDB[placeIdx] !== selectedPlace) {
         selectedPlace = placesDB[placeIdx];
-        togglePreview(true);
+        highlightPlace(true);
     } else {
         selectedPlace = null;
     }
@@ -100,12 +95,28 @@ function selectPlace(id) {
     let placeIdx = placesDB.findIndex((place) => {
         return place.id === id;
     })
-    togglePreview(false);
+    highlightPlace(false);
     if (placesDB[placeIdx] !== selectedPlace) {
         selectedPlace = placesDB[placeIdx];
-        togglePreview(true);
+        highlightPlace(true);
     } else {
         selectedPlace = null;
+    }
+}
+
+function highlightPlace(isOpen) {
+    if (selectedPlace) {
+        selectedPlace.selected = isOpen;
+        googleMapService.toggleMarker(selectedPlace.markerId, isOpen);
+        if (isOpen)
+            eventBusService.$emit('placeClicked', selectedPlace)
+        // eventBusService.$emit('placeEditClicked', selectedPlace)
+    }
+}
+
+function openEditCmp() {
+    if (selectedPlace) {
+        eventBusService.$emit('placeEditClicked', selectedPlace)
     }
 }
 
@@ -117,4 +128,5 @@ export default {
     deletePlace,
     selectMarker,
     selectPlace,
+    openEditCmp
 }
