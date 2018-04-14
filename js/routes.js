@@ -5,10 +5,11 @@ import inbox from './pages/sus-mail/sub-pages/inbox.js';
 import newMail from './pages/sus-mail/sub-pages/new-mail.js';
 import readMail from './pages/sus-mail/sub-pages/read-mail.js';
 
+import mapView from './pages/sus-places/sub-pages/map-view.js';
+import placeDetails from './pages/sus-places/sub-pages/place-details.js';
 import susPlaces from './pages/sus-places/sus-places.js';
 
 import susKeep from './pages/sus-keep/sus-keep.js';
-
 
 const routes = [
     { path: '/', component: home },
@@ -19,7 +20,12 @@ const routes = [
             { path: 'read-mail/:mail?', component: readMail }
         ] 
     },
-    { path: '/sus-places', component: susPlaces },
+    { path: '/sus-places', component: susPlaces,
+     children: [
+        { path: '', component: mapView },
+        { path: 'place-details/:id', component: placeDetails }
+    ]
+    },
     { path: '/sus-keep', component: susKeep },
 ];
 

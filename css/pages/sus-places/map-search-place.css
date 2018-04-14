@@ -2,11 +2,6 @@
     position: relative;
 }
 
-.map-search-place input {
-    border: 0px solid gray;
-    padding: 5px;
-}
-
 .map-search-place .autocomplete-list {
     position: absolute;
     z-index: 1;

@@ -1,6 +1,8 @@
 import navbar from '../../cmps/sus-places/navbar.js'
 import placesList from '../../cmps/sus-places/places-list/places-list.js'
-import mapView from '../../cmps/sus-places/map-view/map-view.js'
+
+import mapView from './sub-pages/map-view.js'
+import placeDetails from './sub-pages/place-details.js'
 
 export default {
     data() {
@@ -20,7 +22,13 @@ export default {
             </header>
             <main class="flex space-between">
                 <places-list></places-list>
-                <map-view></map-view>
+                <!-- <router-link to="/sus-places/new-mail" 
+                            class="new-mail-btn">        
+                        new letter
+                </router-link> -->
+                <!-- <place-details></place-details> -->
+                <router-view></router-view>
+                <!-- <map-view></map-view> -->
             </main>
         </section>
         
@@ -29,6 +37,7 @@ export default {
     components: {
         navbar,
         placesList,
-        mapView
+        mapView,
+        placeDetails
     }
 }

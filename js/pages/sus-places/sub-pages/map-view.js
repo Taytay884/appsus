@@ -1,7 +1,7 @@
-import googleMap from './google-map.js'
-import mapSearchPlace from './map-search-place.js'
-import locationDetails from './location-details.js'
-import placeEdit from './place-edit/place-edit.js'
+import googleMap from '../../../cmps/sus-places/map-view/google-map.js'
+import mapSearchPlace from '../../../cmps/sus-places/map-view/map-search-place.js'
+import locationDetails from '../../../cmps/sus-places/map-view/location-details.js'
+import placeEdit from '../../../cmps/sus-places/map-view/place-edit/place-edit.js'
 
 export default {
     data() {
