@@ -89,7 +89,7 @@ function addMarker(loc, id) {
         map,
     })
     gTempMarker.set('id', (id) ? id : Date.now());
-    gTempMarker.setIcon('../../../../img/sus-places/new-place-icon.png');
+    gTempMarker.setIcon('./img/sus-places/new-place-icon.png');
     return gTempMarker.get('id');
 }
 
@@ -109,7 +109,7 @@ function saveMarker(id) {
         gMarkers.push(gTempMarker);
         gTempMarker.setMap(map);
         gTempMarker.set('saved', true);
-        gTempMarker.setIcon('../../../../img/sus-places/saved-place-icon.png');
+        gTempMarker.setIcon('./img/sus-places/saved-place-icon.png');
         gTempMarker.addListener('click', () => {
             eventBusService.$emit('markerClicked', markerId);
         });
@@ -122,9 +122,9 @@ function toggleMarker(id, toSelect) {
         return marker.id === id;
     });
     if (toSelect) {
-        marker.setIcon('../../../../img/sus-places/clicked-place-icon.png');
+        marker.setIcon('./img/sus-places/clicked-place-icon.png');
     } else {
-        marker.setIcon('../../../../img/sus-places/saved-place-icon.png');
+        marker.setIcon('./img/sus-places/saved-place-icon.png');
     }
 }
 
