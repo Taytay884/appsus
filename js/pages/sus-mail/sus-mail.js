@@ -23,6 +23,7 @@ export default {
 
             <router-view>
             </router-view>
+
         </site-frame>   
     </section>
      `,

@@ -22,13 +22,45 @@
     max-width: 100%;
 }
 
+.search-container {
+    position: relative;
+}
+
+.search-container input {
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+    padding: 5px 15px;
+    height: 34px;
+    transition: box-shadow .3s;
+}
+
+.search-container input:focus {
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
+}
+
+.search-container input::clear {
+    display: none;
+}
+
+.search-container img {
+    transform: scaleX(-1);
+    position: absolute;
+    background-color: white;
+    right: 15px;
+    height: 15px;
+    width: 15px;
+}
+
 .txt-group-container {
     display: flex;
     align-items: center;
     height: 34px;
     font-size: 12px;
-} .txt-group-container:first-child {
     margin-bottom: 16px;
+}
+
+.txt-group-container:last-child {
+    margin-bottom: 0;
 }
 
 .custom-radio-group:not(:last-child) {
@@ -55,14 +87,45 @@
     }
 }
 
-@media(min-width: 600px) {
+@media(min-width: 720px) {
     .inbox-filters {
         flex-direction: row;
+        align-items: center;
     }
-    .txt-group-container:first-child {
+    .txt-group-container {
         margin-right: 1.5em;
         margin-bottom: 0;
-        
+    }
+    .txt-group-container:last-child {
+        margin-right: 0;
+    }
+}
+
+@media(min-width: 850px) {
+    .inbox-filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .txt-group-container {
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+    .txt-group-container:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media(min-width: 1000px) {
+    .inbox-filters {
+        flex-direction: row;
+        align-items: center;
+    }
+    .txt-group-container {
+        margin-right: 1.5em;
+        margin-bottom: 0;
+    }
+    .txt-group-container:last-child {
+        margin-right: 0;
     }
 }
 
@@ -120,12 +183,17 @@
 
 .letter-icon-btn {
     padding: 0;
+    height: 31px;
+    min-width: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../../../../img/sus-mail/closed-letter.svg');
 }
 
-.letter-icon-btn>svg:not(:root).svg-inline--fa {
-    color: gray;
-    height: 30px;
-    width: 30px;
+.openLetter {
+    background-image: url('../../../../img/sus-mail/open-letter.svg');
+    position: relative;
+    bottom: 5.5px;
 }
 
 .sent-from, .title, .content {
@@ -163,15 +231,18 @@
     padding: 10px;
     color: white;
     /* height: 30px; */
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
     transition: transform .3s;
-} .floating-add-btn:hover {
+}
+
+.floating-add-btn:hover {
     transform: scale(1.2);
 }
 
 /* custom font-awesome property */
+
 .svg-inline--fa.fa-w-14 {
     width: 1em;
 }
