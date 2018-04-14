@@ -83,14 +83,14 @@ function sortMails(mails, sortValue) {
 }
 
 function searchMails(mails, searchStr) {
-    console.log(mails, searchStr);
     searchStr = searchStr.toLowerCase();
-    return this.mails.filter(mail => {
+    var filteredMails = this.mails.filter(mail => {
         if (mail.title) {
             var title = mail.title.toLowerCase();
             return title.includes(searchStr);
         }
     });
+    return filteredMails;
 }
 
 export default {

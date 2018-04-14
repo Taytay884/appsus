@@ -8,7 +8,6 @@ export default {
     props: {
         'mails': {
             // type: Array,
-            default: 'hey'
         }
     },
     methods: {
