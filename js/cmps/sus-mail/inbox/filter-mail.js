@@ -38,8 +38,8 @@ export default {
         <section class="filter-mail">
             <form class="inbox-filters" @submit.prevent>
                 <div class="txt-group-container search-container">
-                    <input type="search" v-model="search" @input="$emit('search', search)" />
-                    <img  src="../../../../img/general/search.svg" />
+                    <input type="search" v-model="search" @input="$emit('search', search)" disabled/>
+                    <img v-if="false" src="../../../../img/general/search.svg" />
                 </div>
 
                 <div class="txt-group-container">
