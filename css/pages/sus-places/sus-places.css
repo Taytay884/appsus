@@ -1,19 +1,51 @@
 @import 'navbar.css';
 @import 'places-list.css';
+@import 'place-details.css';
 @import 'map-view.css';
 @import 'google-map.css';
 @import 'map-search-place.css';
 @import 'place-edit.css';
 @import 'img-upload.css';
-
-.sus-places header {
-    margin-bottom: 20px;
-}
+@import '../../general-cmps/app-menu.css';
 
 .sus-places main {
-    height: calc(100vh - 90px);
+    height: 100%;
 }
 
-.sus-places {
-    padding: 0px 10px 10px;
+.sus-places .menu-bar {
+    padding: 5px 15px;
+    height: 50px;
+    background: #4717F6;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .26);
+}
+
+.sus-places input[type="text"],
+.sus-places input[type="search"],
+.sus-places textarea {
+    padding: 5px;
+    color: inherit;
+    font-family: inherit;
+    border: none;
+    border-radius: 0.4rem;
+}
+
+.sus-places input[type="text"]:focus,
+.sus-places input[type="search"]:focus,
+.sus-places textarea:focus {
+    outline: none;
+    box-shadow: 0.2rem 0.8rem 1.6rem rgba(0, 0, 0, .26);
+}
+
+.sus-places main button {
+    background-color: #FF3B3F;
+    color: #EFEFEF;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    font-family: inherit;
+    transition: all .25s ease-in-out;
+    box-shadow: 2px 2px 7px rgba(0, 0, 0, .2);
+    border-radius: 0.4em;
+    border-color: rgba(255, 59, 62, 0.609);
+    border-style: solid;
 }

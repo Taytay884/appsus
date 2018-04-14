@@ -1,8 +1,6 @@
-.sus-places .map-view {
-    position: relative;
+.sus-places .place-details {
     display: flex;
     flex-direction: column;
-    width: 100%;
     background: #DFDCE3;
     height: 100%;
 }

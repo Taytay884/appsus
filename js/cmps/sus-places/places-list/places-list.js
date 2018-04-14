@@ -34,7 +34,10 @@ export default {
         },
         openEditCmp() {
             placesService.openEditCmp();
-        }
+        },
+        openDetails(place) {
+            eventBusService.$emit('detailsOpened', place);
+        },
     },
     template: `
         <section class="places-list-container">
@@ -43,16 +46,17 @@ export default {
                     <li class="flex flex-column space-between":class="{selected: place.selected}"
                     v-for="place in places" @click="selectPlace(place.id)">
                         <div class="text-container">
-                            <h1>{{ place.name }}</h1>
-                            <p class="fade">{{ place.description }}</p>
+                            <h4>{{ place.name }}</h4>
+                            <p>{{ place.description }}</p>
                         </div>
                         <div class="buttons-tags-container flex space-between">
                             <div>
                                 <button v-show="place.selected" @click.stop="deletePlace(place.id)"><i class="far fa-trash-alt"></i></button>
                                 <button v-show="place.selected" @click.stop="openEditCmp()"><i class="far fa-edit"></i></button>
+                                <button v-show="place.selected" @click.stop="openDetails(place)"><i class="fas fa-external-link-square-alt"></i></button>
                             </div>
                             <ul v-show="place.tags.length" class="tags-container flex space-between clean-list">
-                                <div class="tag" v-for="tag in place.tags.slice(0, 3)">{{ tag }}</div>
+                                <div class="tag" v-for="tag in place.tags.slice(0, 2)">{{ tag }}</div>
                             </ul>
                         </div>
                         <!-- id: Date.now(),

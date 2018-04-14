@@ -10,6 +10,7 @@ eventBusService.$on('markerClicked', (markerId) => {
 })
 
 function getPlaces() {
+    if(placesDB.length) return placesDB;
     return storageService.load(PLACES_KEY).then((places) => {
         if (places) {
             places.forEach((place) => {
@@ -53,6 +54,14 @@ function deletePlace(id) {
     storageService.save(PLACES_KEY, placesDB);
 }
 
+function getPlaceById(id) {
+    let placeIdx = placesDB.findIndex((place) => {
+        return place.id === id;
+    })
+    if(placeIdx === -1) return;
+    return placesDB[placeIdx];
+}
+
 function convertToPlace(placeData, markerId, latLng) {
     let place = {
         id: Date.now(),
@@ -67,7 +76,6 @@ function convertToPlace(placeData, markerId, latLng) {
         imgs: []
     }
     if(placeData.length) {
-        console.log(Array.isArray(placeData))
         if (Array.isArray(placeData))
             place.name = placeData[0].formatted_address;
         else 
@@ -116,6 +124,7 @@ function highlightPlace(isOpen) {
 
 function openEditCmp() {
     if (selectedPlace) {
+        console.log('SELECTEDPLACE:', selectedPlace)
         eventBusService.$emit('placeEditClicked', selectedPlace)
     }
 }
@@ -128,5 +137,6 @@ export default {
     deletePlace,
     selectMarker,
     selectPlace,
-    openEditCmp
+    openEditCmp,
+    getPlaceById
 }

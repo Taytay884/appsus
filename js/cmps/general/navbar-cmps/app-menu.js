@@ -27,11 +27,6 @@ export default {
                     <img src="./img/general/map.svg" alt="map" />
                 </router-link>
             </li>
-            <li>
-                <router-link to="/sus-keep">
-                     <img src="./img/general/notepad.svg" alt="notepad" />
-                </router-link>
-            </li>
         </ul>
     </section>
     `

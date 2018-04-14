@@ -24,7 +24,7 @@ export default {
         });
         // EDIT MODE!
         eventBusService.$on('placeClicked', clickedPlaceData => {
-            if(this.isEditMode) return;
+            if (this.isEditMode) return;
             googleMapService.setCenter({
                 lat: clickedPlaceData.lat,
                 lng: clickedPlaceData.lng
@@ -61,7 +61,7 @@ export default {
         useEditCmp() {
             this.isSelectedPlace = true;
             this.currTag = '';
-            document.querySelector('.file-upload-form input').value = '';
+            // document.querySelector('.file-upload-form input').value = '';
         },
         editPlace() {
             if (!this.isSelectedPlace) return;
@@ -75,7 +75,7 @@ export default {
             this.clearEditCmp();
         },
         cancelEdit() {
-            if(this.isEditMode) {
+            if (this.isEditMode) {
                 this.selectedPlace = this.editedPlace;
                 // To unmark the selected place.
                 placesService.selectPlace(this.selectedPlace.id);
@@ -98,29 +98,31 @@ export default {
     template: `
         <section v-show="isSelectedPlace" class="place-edit">
             <form @submit.prevent="editPlace" class="edit">
-                <input class="title" placeholder="Place title" v-model="selectedPlace.name" />
+                <input type="text" class="title" placeholder="Place title" v-model="selectedPlace.name" />
                 <textarea rows="3"  class="description" placeholder="Description" v-model="selectedPlace.description" />
-                <form class="tag flex" @submit.prevent="addTag">
-                    <input v-model="currTag" placeholder="tag" />
+                <form class="flex" @submit.prevent="addTag">
+                    <input type="text" v-model="currTag" placeholder="tag" />
                     <button type="submit">+</button>
                     <ul class="clean-list flex">
-                        <li v-for="tag in selectedPlace.tags">{{ tag }}</li>
+                        <li class="tag" v-for="tag in selectedPlace.tags">{{ tag }}</li>
                     </ul>
                 </form>
+                <div class="flex space-between">
                 <img-upload @imageSynced="addImg" ></img-upload>
-                <div>
-                        <div v-for="img, idx in selectedPlace.imgs">
+                        <div class="flex flex-column" v-for="img, idx in selectedPlace.imgs">
                             <img :src="img" width="40px" height="40px" />
-                            <button type="button" @click.prevent.stop="removeImg(idx)">x</button>
+                            <button type="button" @click.prevent.stop="removeImg(idx)"><i class="far fa-trash-alt"></i></button>
                         </div>
                 </div>
+            <!-- <div>
+                <input type="text" class="id" placeholder="id" v-model="selectedPlace.id" disabled />
+                <input type="text" class="lat" placeholder="lat" v-model="this.selectedPlace.lat" disabled />
+                <input type="text" class="lng" placeholder="lng" v-model="this.selectedPlace.lng" disabled />
+            </div> -->
             <div>
-                <input class="id" placeholder="id" v-model="selectedPlace.id" readonly="readonly" />
-                <input class="lat" placeholder="lat" v-model="this.selectedPlace.lat" readonly="readonly" />
-                <input class="lng" placeholder="lng" v-model="this.selectedPlace.lng" readonly="readonly" />
+                <button type="submit">{{(isEditMode)? 'Save' : 'Add' }}</button>
+                <button @click="cancelEdit">Cancel</button>
             </div>
-            <button type="submit">{{(isEditMode)? 'Save' : 'Add' }}</button>
-            <button @click="cancelEdit">Cancel</button>
             </form>
             
         </section>
